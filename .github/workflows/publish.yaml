@@ -1,4 +1,4 @@
-name: Publish to Ukuya private packages repository
+name: Publish to pub.dev
 on:
   push:
     tags:
