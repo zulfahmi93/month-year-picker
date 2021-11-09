@@ -1,7 +1,7 @@
 # Material Month/Year Picker
 
 [![Pub](https://img.shields.io/pub/v/month_year_picker?style=flat-square)][pub]
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/zulfahmi93/month-year-picker/publish_packages?label=publish&style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/zulfahmi93/month-year-picker/Publish%20to%20pub.dev?label=publish&style=flat-square)
 
 The month year picker inspired by the Flutter's date picker design.
 
