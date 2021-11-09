@@ -1,0 +1,23 @@
+name: month_year_picker_example
+description: Shows example on how to use the month_year_picker package.
+version: 0.0.1
+publish_to: 'none'
+
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+  flutter: '>=2.0.0'
+
+dependencies:
+  cupertino_icons: ^1.0.2
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  month_year_picker:
+    path: ..
+
+dev_dependencies:
+  flutter_lints: ^1.0.4
+
+flutter:
+  uses-material-design: true
