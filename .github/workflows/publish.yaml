@@ -17,6 +17,8 @@ jobs:
           CREDENTIALS_JSON: ${{ secrets.CREDENTIALS_JSON }}
         run: |
           sh ./prepublish.sh
+      - name: Re-format the codes
+        run: flutter format .
       - name: Check Publish Warnings
         run: dart pub publish --dry-run
       - name: Publish Package
