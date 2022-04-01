@@ -236,6 +236,9 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
                   direction == TextDirection.rtl
                       ? Icons.keyboard_arrow_right
                       : Icons.keyboard_arrow_left,
+                  color: _canGoPrevious
+                      ? Colors.black87
+                      : Colors.black.withOpacity(0.1),
                 ),
                 onPressed: _canGoPrevious ? _goToPreviousPage : null,
               ),
@@ -244,6 +247,9 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
                   direction == TextDirection.rtl
                       ? Icons.keyboard_arrow_left
                       : Icons.keyboard_arrow_right,
+                  color: _canGoNext
+                      ? Colors.black87
+                      : Colors.black.withOpacity(0.1),
                 ),
                 onPressed: _canGoNext ? _goToNextPage : null,
               )
