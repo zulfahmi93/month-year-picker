@@ -9,6 +9,7 @@ import 'package:intl/intl.dart' as intl;
 import 'month_year_picker_localizations_ar.dart';
 import 'month_year_picker_localizations_en.dart';
 import 'month_year_picker_localizations_ms.dart';
+import 'month_year_picker_localizations_zh.dart';
 
 /// Callers can lookup localized strings with an instance of MonthYearPickerLocalizations returned
 /// by `MonthYearPickerLocalizations.of(context)`.
@@ -124,7 +125,7 @@ class _MonthYearPickerLocalizationsDelegate extends LocalizationsDelegate<MonthY
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['ar', 'en', 'ms'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['ar', 'en', 'ms','zh'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_MonthYearPickerLocalizationsDelegate old) => false;
@@ -138,6 +139,7 @@ MonthYearPickerLocalizations lookupMonthYearPickerLocalizations(Locale locale) {
     case 'ar': return MonthYearPickerLocalizationsAr();
     case 'en': return MonthYearPickerLocalizationsEn();
     case 'ms': return MonthYearPickerLocalizationsMs();
+    case 'zh': return MonthYearPickerLocalizationsZh();
   }
 
   throw FlutterError(
