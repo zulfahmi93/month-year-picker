@@ -126,7 +126,7 @@ class _MonthYearPickerLocalizationsDelegate extends LocalizationsDelegate<MonthY
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['ar', 'en', 'ms'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['ar', 'en', 'ms','zh_CH'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_MonthYearPickerLocalizationsDelegate old) => false;
