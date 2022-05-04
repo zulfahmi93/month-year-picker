@@ -8,7 +8,7 @@ class MonthYearPickerLocalizationsZhCH extends MonthYearPickerLocalizations {
   MonthYearPickerLocalizationsZhCH([String locale = 'zh']) : super(locale);
 
   @override
-  String get helpText => '选择 月/年';
+  String get helpText => '请选择 月/年';
 
   @override
   String get okButtonLabel => '确定';
