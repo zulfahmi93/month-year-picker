@@ -95,7 +95,7 @@ abstract class MonthYearPickerLocalizations {
     Locale('ar'),
     Locale('en'),
     Locale('ms'),
-    Locale('zh','CH')
+    Locale('zh_CH')
   ];
 
   /// No description provided for @helpText.
