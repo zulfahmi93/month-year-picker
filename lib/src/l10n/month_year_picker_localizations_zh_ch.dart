@@ -5,7 +5,7 @@ import 'month_year_picker_localizations.dart';
 
 /// The translations for Simplified Chinese (`zh-CH`).
 class MonthYearPickerLocalizationsZhCH extends MonthYearPickerLocalizations {
-  MonthYearPickerLocalizationsZhCH([String locale = 'zh_CH']) : super(locale);
+  MonthYearPickerLocalizationsZhCH([String locale = 'zh']) : super(locale);
 
   @override
   String get helpText => '选择 月/年';

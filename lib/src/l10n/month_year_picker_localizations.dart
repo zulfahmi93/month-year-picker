@@ -95,7 +95,7 @@ abstract class MonthYearPickerLocalizations {
     Locale('ar'),
     Locale('en'),
     Locale('ms'),
-    Locale('zh_CH')
+    Locale('zh','CH')
   ];
 
   /// No description provided for @helpText.
@@ -126,7 +126,7 @@ class _MonthYearPickerLocalizationsDelegate extends LocalizationsDelegate<MonthY
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['ar', 'en', 'ms','zh_CH'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['ar', 'en', 'ms','zh'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_MonthYearPickerLocalizationsDelegate old) => false;
@@ -140,7 +140,7 @@ MonthYearPickerLocalizations lookupMonthYearPickerLocalizations(Locale locale) {
     case 'ar': return MonthYearPickerLocalizationsAr();
     case 'en': return MonthYearPickerLocalizationsEn();
     case 'ms': return MonthYearPickerLocalizationsMs();
-    case 'zh_CH': return MonthYearPickerLocalizationsZhCH();
+    case 'zh': return MonthYearPickerLocalizationsZhCH();
   }
 
   throw FlutterError(
