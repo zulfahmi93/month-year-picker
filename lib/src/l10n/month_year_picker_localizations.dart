@@ -140,7 +140,7 @@ MonthYearPickerLocalizations lookupMonthYearPickerLocalizations(Locale locale) {
     case 'ar': return MonthYearPickerLocalizationsAr();
     case 'en': return MonthYearPickerLocalizationsEn();
     case 'ms': return MonthYearPickerLocalizationsMs();
-    case 'zh': return MonthYearPickerLocalizationsZhCH();
+    case 'zh-CH': return MonthYearPickerLocalizationsZhCH();
   }
 
   throw FlutterError(
