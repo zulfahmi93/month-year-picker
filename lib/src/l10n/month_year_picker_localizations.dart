@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
+import 'month_year_picker_localizations_zh_ch.dart';
 
 import 'month_year_picker_localizations_ar.dart';
 import 'month_year_picker_localizations_en.dart';
@@ -93,7 +94,8 @@ abstract class MonthYearPickerLocalizations {
   static const List<Locale> supportedLocales = <Locale>[
     Locale('ar'),
     Locale('en'),
-    Locale('ms')
+    Locale('ms'),
+    Locale('zh','CH')
   ];
 
   /// No description provided for @helpText.
@@ -138,6 +140,7 @@ MonthYearPickerLocalizations lookupMonthYearPickerLocalizations(Locale locale) {
     case 'ar': return MonthYearPickerLocalizationsAr();
     case 'en': return MonthYearPickerLocalizationsEn();
     case 'ms': return MonthYearPickerLocalizationsMs();
+    case 'zh': return MonthYearPickerLocalizationsZhCH();
   }
 
   throw FlutterError(
