@@ -357,18 +357,21 @@ class _Button extends StatelessWidget {
             ? colorScheme.secondary
             : colorScheme.onSurface;
 
-    return TextButton(
-      onPressed: isEnabled ? onPressed : null,
-      style: TextButton.styleFrom(
-        backgroundColor: buttonBackground,
-        primary: buttonText,
-        onSurface: buttonText,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(100.0),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextButton(
+        onPressed: isEnabled ? onPressed : null,
+        style: TextButton.styleFrom(
+          backgroundColor: buttonBackground,
+          primary: buttonText,
+          onSurface: buttonText,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(100.0),
+          ),
+          textStyle: TextStyle(color: buttonText),
         ),
-        textStyle: TextStyle(color: buttonText),
+        child: Text(label),
       ),
-      child: Text(label),
     );
   }
 }
