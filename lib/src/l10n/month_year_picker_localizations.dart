@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
+import 'month_year_picker_localizations_zh_ch.dart';
 
 import 'month_year_picker_localizations_ar.dart';
 import 'month_year_picker_localizations_de.dart';
@@ -99,6 +100,7 @@ abstract class MonthYearPickerLocalizations {
     Locale('en'),
     Locale('ms'),
     Locale('de'),
+    Locale('zh','CH')
   ];
 
   /// No description provided for @helpText.
@@ -132,7 +134,7 @@ class _MonthYearPickerLocalizationsDelegate
 
   @override
   bool isSupported(Locale locale) =>
-      <String>['ar', 'en', 'ms', 'de'].contains(locale.languageCode);
+      <String>['ar', 'en', 'ms', 'de','zh'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_MonthYearPickerLocalizationsDelegate old) => false;
@@ -149,6 +151,7 @@ MonthYearPickerLocalizations lookupMonthYearPickerLocalizations(Locale locale) {
       return MonthYearPickerLocalizationsMs();
     case 'de':
       return MonthYearPickerLocalizationsDe();
+    case 'zh': return MonthYearPickerLocalizationsZhCH();
   }
 
   throw FlutterError(
