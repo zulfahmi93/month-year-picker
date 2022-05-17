@@ -143,7 +143,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
     super.initState();
     _isShowingYear =
         widget.initialMonthYearPickerMode == MonthYearPickerMode.year;
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       setState(_updatePaginators);
     });
   }
