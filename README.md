@@ -21,6 +21,12 @@ The month year picker inspired by the Flutter's date picker design.
     ```dart
     import 'package:month_year_picker/month_year_picker.dart';
     ```
+    Additionally, ensure your MaterialApp refers to the following `localizationsDelegates`:
+    ```
+        GlobalMaterialLocalizations.delegate,
+        MonthYearPickerLocalizations.delegate,
+    ```
+
 
 4. Usage in code:
 
