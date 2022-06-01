@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart' hide YearPicker, MonthPicker;
+import 'package:flutter/material.dart' hide YearPicker;
 
 import 'l10n/month_year_picker_localizations.dart';
 import 'pickers.dart';
@@ -110,7 +110,7 @@ class MonthYearPickerDialog extends StatefulWidget {
 
   // --------------------------------- METHODS ---------------------------------
   @override
-  _MonthYearPickerDialogState createState() => _MonthYearPickerDialogState();
+  State<MonthYearPickerDialog> createState() => _MonthYearPickerDialogState();
 }
 
 class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
@@ -143,7 +143,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
     super.initState();
     _isShowingYear =
         widget.initialMonthYearPickerMode == MonthYearPickerMode.year;
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       setState(_updatePaginators);
     });
   }
@@ -189,9 +189,11 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
       ),
     );
 
+    final semanticText = materialLocalizations.formatMonthYear(_selectedDate);
     final header = _Header(
       helpText: localizations.helpText,
       titleText: dateText,
+      titleSemanticsLabel: semanticText,
       titleStyle: dateStyle,
       orientation: orientation,
     );
@@ -281,6 +283,8 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
                   onPageChanged: _updateSelectedDate,
                   onYearSelected: _updateYear,
                   selectedDate: _selectedDate,
+                  selectableMonthYearPredicate:
+                      widget.selectableMonthYearPredicate,
                 ),
               ),
             ),
@@ -301,6 +305,8 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
                   onPageChanged: _updateSelectedDate,
                   onMonthSelected: _updateMonth,
                   selectedDate: _selectedDate,
+                  selectableMonthYearPredicate:
+                      widget.selectableMonthYearPredicate,
                 ),
               ),
             )

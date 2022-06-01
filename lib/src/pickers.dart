@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -27,7 +26,7 @@ class MonthPicker extends StatefulWidget {
 
   // --------------------------------- METHODS ---------------------------------
   @override
-  State<StatefulWidget> createState() => MonthPickerState();
+  State<MonthPicker> createState() => MonthPickerState();
 }
 
 class MonthPickerState extends State<MonthPicker> {
@@ -105,6 +104,7 @@ class MonthPickerState extends State<MonthPicker> {
             lastDate: widget.lastDate,
             selectedDate: widget.selectedDate,
             onMonthSelected: widget.onMonthSelected,
+            selectableMonthYearPredicate: widget.selectableMonthYearPredicate,
           ),
       ],
     );
@@ -147,7 +147,7 @@ class YearPicker extends StatefulWidget {
 
   // --------------------------------- METHODS ---------------------------------
   @override
-  State<StatefulWidget> createState() => YearPickerState();
+  State<YearPicker> createState() => YearPickerState();
 }
 
 class YearPickerState extends State<YearPicker> {
@@ -222,6 +222,7 @@ class YearPickerState extends State<YearPicker> {
             lastDate: widget.lastDate,
             selectedDate: widget.selectedDate,
             onYearSelected: widget.onYearSelected,
+            selectableMonthYearPredicate: widget.selectableMonthYearPredicate,
           ),
       ],
     );
