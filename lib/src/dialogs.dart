@@ -7,7 +7,7 @@ import 'pickers.dart';
 import 'utils.dart';
 
 // ################################# CONSTANTS #################################
-const _portraitDialogSize = Size(320.0, 480.0);
+const _portraitDialogSize = Size(330.0, 518.0);
 const _landscapeDialogSize = Size(496.0, 344.0);
 const _dialogSizeAnimationDuration = Duration(milliseconds: 200);
 const _datePickerHeaderLandscapeWidth = 192.0;
