@@ -292,7 +292,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
               duration: _dialogSizeAnimationDuration,
               curve: Curves.easeOut,
               left: 0.0,
-              right: (pickerMaxWidth - (width ?? pickerMaxWidth)),
+              right: 0.0,
               top: _isShowingYear ? constraints.maxHeight : 0.0,
               bottom: _isShowingYear ? -constraints.maxHeight : 0.0,
               child: SizedBox(
