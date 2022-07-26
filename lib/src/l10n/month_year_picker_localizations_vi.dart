@@ -5,7 +5,7 @@ class MonthYearPickerLocalizationsVi extends MonthYearPickerLocalizations {
   MonthYearPickerLocalizationsVi([String locale = 'vi']) : super(locale);
 
   @override
-  String get helpText => 'Chọn tháng';
+  String get helpText => 'Chọn tháng/năm';
 
   @override
   String get okButtonLabel => 'OK';
