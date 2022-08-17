@@ -8,8 +8,12 @@ import 'package:intl/intl.dart' as intl;
 import 'month_year_picker_localizations_ar.dart';
 import 'month_year_picker_localizations_de.dart';
 import 'month_year_picker_localizations_en.dart';
+import 'month_year_picker_localizations_fr.dart';
 import 'month_year_picker_localizations_id.dart';
 import 'month_year_picker_localizations_ms.dart';
+import 'month_year_picker_localizations_pt.dart';
+import 'month_year_picker_localizations_vi.dart';
+import 'month_year_picker_localizations_zh.dart';
 
 /// Callers can lookup localized strings with an instance of MonthYearPickerLocalizations returned
 /// by `MonthYearPickerLocalizations.of(context)`.
@@ -97,10 +101,15 @@ abstract class MonthYearPickerLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('ar'),
-    Locale('en'),
-    Locale('ms'),
     Locale('de'),
+    Locale('en'),
+    Locale('fr'),
     Locale('id'),
+    Locale('ms'),
+    Locale('pt'),
+    Locale('vi'),
+    Locale('zh'),
+    Locale('zh', 'CH')
   ];
 
   /// No description provided for @helpText.
@@ -133,26 +142,55 @@ class _MonthYearPickerLocalizationsDelegate
   }
 
   @override
-  bool isSupported(Locale locale) =>
-      <String>['ar', 'en', 'ms', 'de', 'id'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>[
+        'ar',
+        'de',
+        'en',
+        'fr',
+        'id',
+        'ms',
+        'pt',
+        'vi',
+        'zh'
+      ].contains(locale.languageCode);
 
   @override
   bool shouldReload(_MonthYearPickerLocalizationsDelegate old) => false;
 }
 
 MonthYearPickerLocalizations lookupMonthYearPickerLocalizations(Locale locale) {
+  // Lookup logic when language+country codes are specified.
+  switch (locale.languageCode) {
+    case 'zh':
+      {
+        switch (locale.countryCode) {
+          case 'CH':
+            return MonthYearPickerLocalizationsZhCh();
+        }
+        break;
+      }
+  }
+
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
     case 'ar':
       return MonthYearPickerLocalizationsAr();
-    case 'en':
-      return MonthYearPickerLocalizationsEn();
-    case 'ms':
-      return MonthYearPickerLocalizationsMs();
     case 'de':
       return MonthYearPickerLocalizationsDe();
+    case 'en':
+      return MonthYearPickerLocalizationsEn();
+    case 'fr':
+      return MonthYearPickerLocalizationsFr();
     case 'id':
       return MonthYearPickerLocalizationsId();
+    case 'ms':
+      return MonthYearPickerLocalizationsMs();
+    case 'pt':
+      return MonthYearPickerLocalizationsPt();
+    case 'vi':
+      return MonthYearPickerLocalizationsVi();
+    case 'zh':
+      return MonthYearPickerLocalizationsZh();
   }
 
   throw FlutterError(

@@ -1,6 +1,6 @@
 import 'month_year_picker_localizations.dart';
 
-/// The translations for Indonesia (`id`).
+/// The translations for Indonesian (`id`).
 class MonthYearPickerLocalizationsId extends MonthYearPickerLocalizations {
   MonthYearPickerLocalizationsId([String locale = 'id']) : super(locale);
 
