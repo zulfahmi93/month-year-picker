@@ -15,4 +15,4 @@
 - Added Chinese (Switzerland) (zh-ch) localisation. ([@Kingtous](https://github.com/Kingtous))
 - Added Portuguese (pt) localisation. ([@hugofpsilva](https://github.com/hugofpsilva))
 - Added French (fr) localisation. ([@LamsaLL](https://github.com/LamsaLL))
-- Added Vietnamese (vt) localisation. ([@trinhvuduc](https://github.com/trinhvuduc))
+- Added Vietnamese (vi) localisation. ([@trinhvuduc](https://github.com/trinhvuduc))
