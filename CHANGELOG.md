@@ -16,3 +16,6 @@
 - Added Portuguese (pt) localisation. ([@hugofpsilva](https://github.com/hugofpsilva))
 - Added French (fr) localisation. ([@LamsaLL](https://github.com/LamsaLL))
 - Added Vietnamese (vi) localisation. ([@trinhvuduc](https://github.com/trinhvuduc))
+
+## v0.2.0+3
+- Added Japanese (ja) localisation. ([@kogepan159](https://github.com/kogepan159))
