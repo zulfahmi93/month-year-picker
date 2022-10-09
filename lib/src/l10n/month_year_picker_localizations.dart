@@ -111,7 +111,8 @@ abstract class MonthYearPickerLocalizations {
     Locale('pt'),
     Locale('vi'),
     Locale('zh'),
-    Locale('zh', 'CH')
+    Locale('zh', 'CH'),
+    Locale('th')
   ];
 
   /// No description provided for @helpText.
@@ -154,7 +155,8 @@ class _MonthYearPickerLocalizationsDelegate
         'ms',
         'pt',
         'vi',
-        'zh'
+        'zh',
+        'th'
       ].contains(locale.languageCode);
 
   @override
@@ -196,6 +198,8 @@ MonthYearPickerLocalizations lookupMonthYearPickerLocalizations(Locale locale) {
       return MonthYearPickerLocalizationsVi();
     case 'zh':
       return MonthYearPickerLocalizationsZh();
+    case 'th':
+      return MonthYearPickerLocalizationsTh();
   }
 
   throw FlutterError(
