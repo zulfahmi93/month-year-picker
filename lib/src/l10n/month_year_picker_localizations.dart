@@ -15,6 +15,7 @@ import 'month_year_picker_localizations_ms.dart';
 import 'month_year_picker_localizations_pt.dart';
 import 'month_year_picker_localizations_vi.dart';
 import 'month_year_picker_localizations_zh.dart';
+import 'month_year_picker_localizations_th.dart';
 
 /// Callers can lookup localized strings with an instance of MonthYearPickerLocalizations
 /// returned by `MonthYearPickerLocalizations.of(context)`.
