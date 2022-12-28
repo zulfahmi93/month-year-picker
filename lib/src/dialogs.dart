@@ -203,10 +203,10 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
         TextButton(
           style: TextButton.styleFrom(
             padding: const EdgeInsetsDirectional.fromSTEB(
-              32.0,
               24.0,
-              8.0,
+              16.0,
               24.0,
+              16.0,
             ),
             primary: Theme.of(context).textTheme.caption?.color,
           ),
@@ -228,7 +228,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
           },
         ),
         PositionedDirectional(
-          end: 0.0,
+          end: 8,
           top: 0.0,
           bottom: 0.0,
           child: Row(
