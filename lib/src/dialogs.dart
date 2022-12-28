@@ -239,6 +239,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
                       ? Icons.keyboard_arrow_right
                       : Icons.keyboard_arrow_left,
                 ),
+                splashRadius: 24,
                 onPressed: _canGoPrevious ? _goToPreviousPage : null,
               ),
               IconButton(
@@ -247,12 +248,12 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
                       ? Icons.keyboard_arrow_left
                       : Icons.keyboard_arrow_right,
                 ),
+                splashRadius: 24,
                 onPressed: _canGoNext ? _goToNextPage : null,
               )
             ],
           ),
         ),
-        const SizedBox(width: 12.0),
       ],
     );
 
