@@ -25,6 +25,9 @@ Future<DateTime?> showMonthYearPicker({
   required DateTime firstDate,
   required DateTime lastDate,
   SelectableMonthYearPredicate? selectableMonthYearPredicate,
+  String? helpText,
+  String? cancelText,
+  String? confirmText,
   Locale? locale,
   bool useRootNavigator = true,
   RouteSettings? routeSettings,
@@ -56,6 +59,9 @@ Future<DateTime?> showMonthYearPicker({
     initialDate: initialDate,
     firstDate: firstDate,
     lastDate: lastDate,
+    helpText: helpText,
+    cancelText: cancelText,
+    confirmText: confirmText,
     initialMonthYearPickerMode: initialMonthYearPickerMode,
     selectableMonthYearPredicate: selectableMonthYearPredicate,
   );
@@ -98,6 +104,9 @@ class MonthYearPickerDialog extends StatefulWidget {
     required this.firstDate,
     required this.lastDate,
     required this.initialMonthYearPickerMode,
+    this.helpText,
+    this.cancelText,
+    this.confirmText,
     this.selectableMonthYearPredicate,
   }) : super(key: key);
 
@@ -105,6 +114,9 @@ class MonthYearPickerDialog extends StatefulWidget {
   final DateTime initialDate;
   final DateTime firstDate;
   final DateTime lastDate;
+  final String? helpText;
+  final String? cancelText;
+  final String? confirmText;
   final MonthYearPickerMode initialMonthYearPickerMode;
   final SelectableMonthYearPredicate? selectableMonthYearPredicate;
 
@@ -179,11 +191,11 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
         children: <Widget>[
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: Text(localizations.cancelButtonLabel),
+            child: Text(widget.cancelText ?? localizations.cancelButtonLabel),
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, _selectedDate),
-            child: Text(localizations.okButtonLabel),
+            child: Text(widget.confirmText ?? localizations.okButtonLabel),
           ),
         ],
       ),
@@ -191,7 +203,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
 
     final semanticText = materialLocalizations.formatMonthYear(_selectedDate);
     final header = _Header(
-      helpText: localizations.helpText,
+      helpText: widget.helpText ?? localizations.helpText,
       titleText: dateText,
       titleSemanticsLabel: semanticText,
       titleStyle: dateStyle,
