@@ -479,7 +479,7 @@ class _Header extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsetsDirectional.only(
                 start: 24.0,
-                end: 12.0,
+                end: 24.0,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
