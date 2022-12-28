@@ -211,22 +211,24 @@ class YearPickerState extends State<YearPicker> {
   }
 
   Widget _buildItem(final BuildContext context, final int page) {
-    return GridView.count(
-      physics: const NeverScrollableScrollPhysics(),
-      padding: const EdgeInsets.all(8.0),
-      crossAxisCount: 4,
-      children: [
-        for (var i = 0; i < 12; i++)
-          _YearButton(
-            page: page,
-            index: i,
-            firstDate: widget.firstDate,
-            lastDate: widget.lastDate,
-            selectedDate: widget.selectedDate,
-            onYearSelected: widget.onYearSelected,
-            selectableMonthYearPredicate: widget.selectableMonthYearPredicate,
-          ),
-      ],
+    return ScrollConfiguration(
+      behavior: const ScrollBehavior().copyWith(overscroll: false),
+      child: GridView.count(
+        padding: const EdgeInsets.all(8.0),
+        crossAxisCount: 4,
+        children: [
+          for (var i = 0; i < 12; i++)
+            _YearButton(
+              page: page,
+              index: i,
+              firstDate: widget.firstDate,
+              lastDate: widget.lastDate,
+              selectedDate: widget.selectedDate,
+              onYearSelected: widget.onYearSelected,
+              selectableMonthYearPredicate: widget.selectableMonthYearPredicate,
+            ),
+        ],
+      ),
     );
   }
 
