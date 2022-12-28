@@ -513,14 +513,14 @@ class _Header extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 16.0),
+                const SizedBox(height: 24.0),
                 Padding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: _headerPaddingLandscape,
                   ),
                   child: help,
                 ),
-                const SizedBox(height: 56.0),
+                const SizedBox(height: 48.0),
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
