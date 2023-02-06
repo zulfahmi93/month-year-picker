@@ -21,9 +21,12 @@ class ExampleApp extends StatelessWidget {
       home: MyHomePage(),
       localizationsDelegates: [
         GlobalWidgetsLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
+        ...GlobalMaterialLocalizations.delegates,
         MonthYearPickerLocalizations.delegate,
+      
       ],
+      locale: Locale('es'),
+      supportedLocales: [Locale('es'), Locale('ms'), Locale('ar')],
     );
   }
 }
@@ -56,6 +59,15 @@ class _MyHomePageState extends State<MyHomePage> {
               const Text('No month year selected.')
             else
               Text(DateFormat().add_yM().format(_selected!)),
+            TextButton(
+                child: const Text('ESPAÑOL'),
+                onPressed: () {
+                  showMonthYearPicker(
+                      context: context,
+                      initialDate: DateTime.now(),
+                      firstDate: DateTime.parse('1900-01-01'),
+                      lastDate: DateTime.now());
+                }),
             TextButton(
               child: const Text('DEFAULT LOCALE'),
               onPressed: () => _onPressed(context: context),

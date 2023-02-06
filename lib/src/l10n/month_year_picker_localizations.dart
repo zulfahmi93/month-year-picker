@@ -8,6 +8,7 @@ import 'package:intl/intl.dart' as intl;
 import 'month_year_picker_localizations_ar.dart';
 import 'month_year_picker_localizations_de.dart';
 import 'month_year_picker_localizations_en.dart';
+import 'month_year_picker_localizations_es.dart';
 import 'month_year_picker_localizations_fr.dart';
 import 'month_year_picker_localizations_id.dart';
 import 'month_year_picker_localizations_ja.dart';
@@ -68,18 +69,15 @@ import 'month_year_picker_localizations_zh.dart';
 /// be consistent with the languages listed in the MonthYearPickerLocalizations.supportedLocales
 /// property.
 abstract class MonthYearPickerLocalizations {
-  MonthYearPickerLocalizations(String locale)
-      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  MonthYearPickerLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
   static MonthYearPickerLocalizations of(BuildContext context) {
-    return Localizations.of<MonthYearPickerLocalizations>(
-        context, MonthYearPickerLocalizations)!;
+    return Localizations.of<MonthYearPickerLocalizations>(context, MonthYearPickerLocalizations)!;
   }
 
-  static const LocalizationsDelegate<MonthYearPickerLocalizations> delegate =
-      _MonthYearPickerLocalizationsDelegate();
+  static const LocalizationsDelegate<MonthYearPickerLocalizations> delegate = _MonthYearPickerLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -91,8 +89,7 @@ abstract class MonthYearPickerLocalizations {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
-      <LocalizationsDelegate<dynamic>>[
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
     delegate,
     GlobalMaterialLocalizations.delegate,
     GlobalCupertinoLocalizations.delegate,
@@ -104,6 +101,7 @@ abstract class MonthYearPickerLocalizations {
     Locale('ar'),
     Locale('de'),
     Locale('en'),
+    Locale('es'),
     Locale('fr'),
     Locale('id'),
     Locale('ja'),
@@ -133,74 +131,52 @@ abstract class MonthYearPickerLocalizations {
   String get cancelButtonLabel;
 }
 
-class _MonthYearPickerLocalizationsDelegate
-    extends LocalizationsDelegate<MonthYearPickerLocalizations> {
+class _MonthYearPickerLocalizationsDelegate extends LocalizationsDelegate<MonthYearPickerLocalizations> {
   const _MonthYearPickerLocalizationsDelegate();
 
   @override
   Future<MonthYearPickerLocalizations> load(Locale locale) {
-    return SynchronousFuture<MonthYearPickerLocalizations>(
-        lookupMonthYearPickerLocalizations(locale));
+    return SynchronousFuture<MonthYearPickerLocalizations>(lookupMonthYearPickerLocalizations(locale));
   }
 
   @override
-  bool isSupported(Locale locale) => <String>[
-        'ar',
-        'de',
-        'en',
-        'fr',
-        'id',
-        'ja',
-        'ms',
-        'pt',
-        'vi',
-        'zh'
-      ].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['ar', 'de', 'en', 'es', 'fr', 'id', 'ja', 'ms', 'pt', 'vi', 'zh'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_MonthYearPickerLocalizationsDelegate old) => false;
 }
 
 MonthYearPickerLocalizations lookupMonthYearPickerLocalizations(Locale locale) {
+
   // Lookup logic when language+country codes are specified.
   switch (locale.languageCode) {
-    case 'zh':
-      {
-        switch (locale.countryCode) {
-          case 'CH':
-            return MonthYearPickerLocalizationsZhCh();
-        }
-        break;
-      }
+    case 'zh': {
+  switch (locale.countryCode) {
+    case 'CH': return MonthYearPickerLocalizationsZhCh();
+   }
+  break;
+   }
   }
 
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'ar':
-      return MonthYearPickerLocalizationsAr();
-    case 'de':
-      return MonthYearPickerLocalizationsDe();
-    case 'en':
-      return MonthYearPickerLocalizationsEn();
-    case 'fr':
-      return MonthYearPickerLocalizationsFr();
-    case 'id':
-      return MonthYearPickerLocalizationsId();
-    case 'ja':
-      return MonthYearPickerLocalizationsJa();
-    case 'ms':
-      return MonthYearPickerLocalizationsMs();
-    case 'pt':
-      return MonthYearPickerLocalizationsPt();
-    case 'vi':
-      return MonthYearPickerLocalizationsVi();
-    case 'zh':
-      return MonthYearPickerLocalizationsZh();
+    case 'ar': return MonthYearPickerLocalizationsAr();
+    case 'de': return MonthYearPickerLocalizationsDe();
+    case 'en': return MonthYearPickerLocalizationsEn();
+    case 'es': return MonthYearPickerLocalizationsEs();
+    case 'fr': return MonthYearPickerLocalizationsFr();
+    case 'id': return MonthYearPickerLocalizationsId();
+    case 'ja': return MonthYearPickerLocalizationsJa();
+    case 'ms': return MonthYearPickerLocalizationsMs();
+    case 'pt': return MonthYearPickerLocalizationsPt();
+    case 'vi': return MonthYearPickerLocalizationsVi();
+    case 'zh': return MonthYearPickerLocalizationsZh();
   }
 
   throw FlutterError(
-      'MonthYearPickerLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
-      'an issue with the localizations generation tool. Please file an issue '
-      'on GitHub with a reproducible sample app and the gen-l10n configuration '
-      'that was used.');
+    'MonthYearPickerLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+    'an issue with the localizations generation tool. Please file an issue '
+    'on GitHub with a reproducible sample app and the gen-l10n configuration '
+    'that was used.'
+  );
 }

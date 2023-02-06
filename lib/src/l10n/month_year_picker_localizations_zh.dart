@@ -16,7 +16,7 @@ class MonthYearPickerLocalizationsZh extends MonthYearPickerLocalizations {
 
 /// The translations for Chinese, as used in Switzerland (`zh_CH`).
 class MonthYearPickerLocalizationsZhCh extends MonthYearPickerLocalizationsZh {
-  MonthYearPickerLocalizationsZhCh() : super('zh_CH');
+  MonthYearPickerLocalizationsZhCh(): super('zh_CH');
 
   @override
   String get helpText => '请选择月/年';
