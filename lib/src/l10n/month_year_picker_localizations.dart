@@ -196,7 +196,7 @@ MonthYearPickerLocalizations lookupMonthYearPickerLocalizations(Locale locale) {
     case 'pt':
       return MonthYearPickerLocalizationsPt();
     case 'tr':
-      return MonthYearPickerLocalizationsPt();
+      return MonthYearPickerLocalizationsTr();
     case 'vi':
       return MonthYearPickerLocalizationsVi();
     case 'zh':
