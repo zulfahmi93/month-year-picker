@@ -1,6 +1,6 @@
 import 'month_year_picker_localizations.dart';
 
-/// The translations for English (`en`).
+/// The translations for Turkish (`tr`).
 class MonthYearPickerLocalizationsTr extends MonthYearPickerLocalizations {
   MonthYearPickerLocalizationsTr([String locale = 'tr']) : super(locale);
 

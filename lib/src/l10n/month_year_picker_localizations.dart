@@ -11,12 +11,13 @@ import 'month_year_picker_localizations_en.dart';
 import 'month_year_picker_localizations_fr.dart';
 import 'month_year_picker_localizations_id.dart';
 import 'month_year_picker_localizations_ja.dart';
+import 'month_year_picker_localizations_ko.dart';
 import 'month_year_picker_localizations_ms.dart';
 import 'month_year_picker_localizations_pt.dart';
+import 'month_year_picker_localizations_th.dart';
 import 'month_year_picker_localizations_tr.dart';
 import 'month_year_picker_localizations_vi.dart';
 import 'month_year_picker_localizations_zh.dart';
-import 'month_year_picker_localizations_th.dart';
 
 /// Callers can lookup localized strings with an instance of MonthYearPickerLocalizations
 /// returned by `MonthYearPickerLocalizations.of(context)`.
@@ -109,13 +110,14 @@ abstract class MonthYearPickerLocalizations {
     Locale('fr'),
     Locale('id'),
     Locale('ja'),
+    Locale('ko'),
     Locale('ms'),
     Locale('pt'),
+    Locale('th'),
     Locale('tr'),
     Locale('vi'),
     Locale('zh'),
-    Locale('zh', 'CH'),
-    Locale('th')
+    Locale('zh', 'CH')
   ];
 
   /// No description provided for @helpText.
@@ -155,12 +157,13 @@ class _MonthYearPickerLocalizationsDelegate
         'fr',
         'id',
         'ja',
+        'ko',
         'ms',
         'pt',
+        'th',
         'tr',
         'vi',
-        'zh',
-        'th'
+        'zh'
       ].contains(locale.languageCode);
 
   @override
@@ -194,18 +197,20 @@ MonthYearPickerLocalizations lookupMonthYearPickerLocalizations(Locale locale) {
       return MonthYearPickerLocalizationsId();
     case 'ja':
       return MonthYearPickerLocalizationsJa();
+    case 'ko':
+      return MonthYearPickerLocalizationsKo();
     case 'ms':
       return MonthYearPickerLocalizationsMs();
     case 'pt':
       return MonthYearPickerLocalizationsPt();
+    case 'th':
+      return MonthYearPickerLocalizationsTh();
     case 'tr':
       return MonthYearPickerLocalizationsTr();
     case 'vi':
       return MonthYearPickerLocalizationsVi();
     case 'zh':
       return MonthYearPickerLocalizationsZh();
-    case 'th':
-      return MonthYearPickerLocalizationsTh();
   }
 
   throw FlutterError(
