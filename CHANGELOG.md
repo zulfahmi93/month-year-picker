@@ -24,3 +24,6 @@
 - Added Thailand (th) localisation. ([@STP-PMT](https://github.com/STP-PMT))
 - Added Korean (ko) localisation. ([@hawk0530-mintsoft](https://github.com/hawk0530-mintsoft))
 - Added Turkish (tr) localisation. ([@azerturk](https://github.com/azerturk))
+
+## v0.3.0+1
+- **BREAKING CHANGES**: Upgraded to Dart 3 and Flutter 3.10 SDK.

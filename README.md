@@ -76,8 +76,8 @@ The month year picker inspired by the Flutter's date picker design.
 
 ### Dependencies
 
-1. Dart SDK version 2.17.0 or newer.
-2. Flutter SDK version 3.0 or newer.
+1. Dart SDK version 3.0.0 or newer.
+2. Flutter SDK version 3.10 or newer.
 
 ### Steps
 

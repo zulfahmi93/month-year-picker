@@ -1,18 +1,18 @@
 name: month_year_picker
 description: The month year picker inspired by the Flutter's date picker design.
-version: 0.2.0+4
+version: 0.3.0+1
 homepage: https://github.com/zulfahmi93/month-year-picker
 
 environment:
-  sdk: '>=2.17.0 <3.0.0'
-  flutter: '>=3.0.0'
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.10.0'
 
 dependencies:
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  intl: ^0.17.0
+  intl: ^0.18.0
 
 dev_dependencies:
   flutter_lints: ^2.0.1
