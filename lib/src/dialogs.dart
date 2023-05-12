@@ -7,7 +7,7 @@ import 'pickers.dart';
 import 'utils.dart';
 
 // ################################# CONSTANTS #################################
-const _portraitDialogSize = Size(320.0, 480.0);
+const _portraitDialogSize = Size(320.0, 464.0);
 const _landscapeDialogSize = Size(496.0, 344.0);
 const _dialogSizeAnimationDuration = Duration(milliseconds: 200);
 const _datePickerHeaderLandscapeWidth = 192.0;
@@ -25,6 +25,9 @@ Future<DateTime?> showMonthYearPicker({
   required DateTime firstDate,
   required DateTime lastDate,
   SelectableMonthYearPredicate? selectableMonthYearPredicate,
+  String? helpText,
+  String? cancelText,
+  String? confirmText,
   Locale? locale,
   bool useRootNavigator = true,
   RouteSettings? routeSettings,
@@ -56,6 +59,9 @@ Future<DateTime?> showMonthYearPicker({
     initialDate: initialDate,
     firstDate: firstDate,
     lastDate: lastDate,
+    helpText: helpText,
+    cancelText: cancelText,
+    confirmText: confirmText,
     initialMonthYearPickerMode: initialMonthYearPickerMode,
     selectableMonthYearPredicate: selectableMonthYearPredicate,
   );
@@ -98,6 +104,9 @@ class MonthYearPickerDialog extends StatefulWidget {
     required this.firstDate,
     required this.lastDate,
     required this.initialMonthYearPickerMode,
+    this.helpText,
+    this.cancelText,
+    this.confirmText,
     this.selectableMonthYearPredicate,
   }) : super(key: key);
 
@@ -105,6 +114,9 @@ class MonthYearPickerDialog extends StatefulWidget {
   final DateTime initialDate;
   final DateTime firstDate;
   final DateTime lastDate;
+  final String? helpText;
+  final String? cancelText;
+  final String? confirmText;
   final MonthYearPickerMode initialMonthYearPickerMode;
   final SelectableMonthYearPredicate? selectableMonthYearPredicate;
 
@@ -179,11 +191,11 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
         children: <Widget>[
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: Text(localizations.cancelButtonLabel),
+            child: Text(widget.cancelText ?? localizations.cancelButtonLabel),
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, _selectedDate),
-            child: Text(localizations.okButtonLabel),
+            child: Text(widget.confirmText ?? localizations.okButtonLabel),
           ),
         ],
       ),
@@ -191,7 +203,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
 
     final semanticText = materialLocalizations.formatMonthYear(_selectedDate);
     final header = _Header(
-      helpText: localizations.helpText,
+      helpText: widget.helpText ?? localizations.helpText,
       titleText: dateText,
       titleSemanticsLabel: semanticText,
       titleStyle: dateStyle,
@@ -203,10 +215,10 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
         TextButton(
           style: TextButton.styleFrom(
             padding: const EdgeInsetsDirectional.fromSTEB(
-              32.0,
               24.0,
-              8.0,
+              16.0,
               24.0,
+              16.0,
             ),
             primary: Theme.of(context).textTheme.caption?.color,
           ),
@@ -228,7 +240,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
           },
         ),
         PositionedDirectional(
-          end: 0.0,
+          end: 8,
           top: 0.0,
           bottom: 0.0,
           child: Row(
@@ -239,6 +251,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
                       ? Icons.keyboard_arrow_right
                       : Icons.keyboard_arrow_left,
                 ),
+                splashRadius: 24,
                 onPressed: _canGoPrevious ? _goToPreviousPage : null,
               ),
               IconButton(
@@ -247,30 +260,24 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
                       ? Icons.keyboard_arrow_left
                       : Icons.keyboard_arrow_right,
                 ),
+                splashRadius: 24,
                 onPressed: _canGoNext ? _goToNextPage : null,
               )
             ],
           ),
         ),
-        const SizedBox(width: 12.0),
       ],
     );
 
     final picker = LayoutBuilder(
       builder: (context, constraints) {
-        final pickerMaxWidth =
-            _landscapeDialogSize.width - _datePickerHeaderLandscapeWidth;
-        final width = constraints.maxHeight < pickerMaxWidth
-            ? constraints.maxHeight / 3.0 * 4.0
-            : null;
-
         return Stack(
           children: [
             AnimatedPositioned(
               duration: _dialogSizeAnimationDuration,
               curve: Curves.easeOut,
               left: 0.0,
-              right: (pickerMaxWidth - (width ?? pickerMaxWidth)),
+              right: 0.0,
               top: _isShowingYear ? 0.0 : -constraints.maxHeight,
               bottom: _isShowingYear ? 0.0 : constraints.maxHeight,
               child: SizedBox(
@@ -292,7 +299,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
               duration: _dialogSizeAnimationDuration,
               curve: Curves.easeOut,
               left: 0.0,
-              right: (pickerMaxWidth - (width ?? pickerMaxWidth)),
+              right: 0.0,
               top: _isShowingYear ? constraints.maxHeight : 0.0,
               bottom: _isShowingYear ? -constraints.maxHeight : 0.0,
               child: SizedBox(
@@ -484,7 +491,7 @@ class _Header extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsetsDirectional.only(
                 start: 24.0,
-                end: 12.0,
+                end: 24.0,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -506,14 +513,14 @@ class _Header extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 16.0),
+                const SizedBox(height: 24.0),
                 Padding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: _headerPaddingLandscape,
                   ),
                   child: help,
                 ),
-                const SizedBox(height: 56.0),
+                const SizedBox(height: 48.0),
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
