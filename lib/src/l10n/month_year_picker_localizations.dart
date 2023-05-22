@@ -18,6 +18,7 @@ import 'month_year_picker_localizations_th.dart';
 import 'month_year_picker_localizations_tr.dart';
 import 'month_year_picker_localizations_vi.dart';
 import 'month_year_picker_localizations_zh.dart';
+import 'month_year_picker_localizations_pl.dart';
 
 /// Callers can lookup localized strings with an instance of MonthYearPickerLocalizations
 /// returned by `MonthYearPickerLocalizations.of(context)`.
@@ -112,6 +113,7 @@ abstract class MonthYearPickerLocalizations {
     Locale('ja'),
     Locale('ko'),
     Locale('ms'),
+    Locale('pl'),
     Locale('pt'),
     Locale('th'),
     Locale('tr'),
@@ -159,6 +161,7 @@ class _MonthYearPickerLocalizationsDelegate
         'ja',
         'ko',
         'ms',
+        'pl',
         'pt',
         'th',
         'tr',
@@ -201,6 +204,8 @@ MonthYearPickerLocalizations lookupMonthYearPickerLocalizations(Locale locale) {
       return MonthYearPickerLocalizationsKo();
     case 'ms':
       return MonthYearPickerLocalizationsMs();
+    case 'pl':
+      return MonthYearPickerLocalizationsPl();
     case 'pt':
       return MonthYearPickerLocalizationsPt();
     case 'th':
