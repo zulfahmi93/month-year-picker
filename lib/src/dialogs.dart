@@ -167,8 +167,8 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
         ? colorScheme.onPrimary
         : colorScheme.onSurface;
     final dateStyle = orientation == Orientation.landscape
-        ? textTheme.headline5?.copyWith(color: onPrimarySurface)
-        : textTheme.headline4?.copyWith(color: onPrimarySurface);
+        ? textTheme.headlineSmall?.copyWith(color: onPrimarySurface)
+        : textTheme.headlineMedium?.copyWith(color: onPrimarySurface);
 
     final Widget actions = Container(
       alignment: AlignmentDirectional.centerEnd,
@@ -208,7 +208,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
               8.0,
               24.0,
             ),
-            primary: Theme.of(context).textTheme.caption?.color,
+            foregroundColor: Theme.of(context).textTheme.bodySmall?.color,
           ),
           child: Row(
             children: [
@@ -456,7 +456,7 @@ class _Header extends StatelessWidget {
     final onPrimarySurfaceColor =
         isDark ? colorScheme.onSurface : colorScheme.onPrimary;
 
-    final helpStyle = textTheme.overline?.copyWith(
+    final helpStyle = textTheme.labelSmall?.copyWith(
       color: onPrimarySurfaceColor,
     );
 

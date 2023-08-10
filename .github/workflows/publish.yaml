@@ -8,18 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+
       - name: Install Flutter
-        uses: subosito/flutter-action@v1
-      - name: Setup Credentials
-        shell: bash
-        env:
-          CREDENTIALS_JSON: ${{ secrets.CREDENTIALS_JSON }}
-        run: |
-          sh ./prepublish.sh
-      - name: Re-format the codes
-        run: flutter format .
-      - name: Check Publish Warnings
-        run: dart pub publish --dry-run
-      - name: Publish Package
-        run: dart pub publish -f
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      - name: Publish
+        uses: k-paxian/dart-package-publisher@master
+        with:
+          credentialJson: ${{ secrets.CREDENTIALS_JSON }}
+          format: true
+          force: true

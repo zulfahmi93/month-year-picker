@@ -11,8 +11,11 @@ import 'month_year_picker_localizations_en.dart';
 import 'month_year_picker_localizations_fr.dart';
 import 'month_year_picker_localizations_id.dart';
 import 'month_year_picker_localizations_ja.dart';
+import 'month_year_picker_localizations_ko.dart';
 import 'month_year_picker_localizations_ms.dart';
 import 'month_year_picker_localizations_pt.dart';
+import 'month_year_picker_localizations_th.dart';
+import 'month_year_picker_localizations_tr.dart';
 import 'month_year_picker_localizations_vi.dart';
 import 'month_year_picker_localizations_zh.dart';
 import 'month_year_picker_localizations_fi.dart';
@@ -108,8 +111,11 @@ abstract class MonthYearPickerLocalizations {
     Locale('fr'),
     Locale('id'),
     Locale('ja'),
+    Locale('ko'),
     Locale('ms'),
     Locale('pt'),
+    Locale('th'),
+    Locale('tr'),
     Locale('vi'),
     Locale('zh'),
     Locale('zh', 'CH'),
@@ -153,8 +159,11 @@ class _MonthYearPickerLocalizationsDelegate
         'fr',
         'id',
         'ja',
+        'ko',
         'ms',
         'pt',
+        'th',
+        'tr',
         'vi',
         'zh',
 		'fi'
@@ -191,10 +200,16 @@ MonthYearPickerLocalizations lookupMonthYearPickerLocalizations(Locale locale) {
       return MonthYearPickerLocalizationsId();
     case 'ja':
       return MonthYearPickerLocalizationsJa();
+    case 'ko':
+      return MonthYearPickerLocalizationsKo();
     case 'ms':
       return MonthYearPickerLocalizationsMs();
     case 'pt':
       return MonthYearPickerLocalizationsPt();
+    case 'th':
+      return MonthYearPickerLocalizationsTh();
+    case 'tr':
+      return MonthYearPickerLocalizationsTr();
     case 'vi':
       return MonthYearPickerLocalizationsVi();
     case 'zh':
