@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:month_year_picker/month_year_picker.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const ExampleApp());
 }
 
@@ -16,8 +19,10 @@ class ExampleApp extends StatelessWidget {
   // --------------------------------- METHODS ---------------------------------
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Month Year Picker Example',
+      theme: ThemeData.from(
+          colorScheme: ColorScheme.fromSeed(seedColor: Color(0xffF20B0B))),
       home: MyHomePage(),
       localizationsDelegates: [
         GlobalWidgetsLocalizations.delegate,

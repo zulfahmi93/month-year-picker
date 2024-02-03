@@ -7,7 +7,7 @@ import 'pickers.dart';
 import 'utils.dart';
 
 // ################################# CONSTANTS #################################
-const _portraitDialogSize = Size(320.0, 480.0);
+const _portraitDialogSize = Size(340.0, 500.0);
 const _landscapeDialogSize = Size(496.0, 344.0);
 const _dialogSizeAnimationDuration = Duration(milliseconds: 200);
 const _datePickerHeaderLandscapeWidth = 192.0;
@@ -127,7 +127,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
     final orientation = MediaQuery.of(context).orientation;
     final offset =
         Theme.of(context).materialTapTargetSize == MaterialTapTargetSize.padded
-            ? const Offset(0.0, 24.0)
+            ? const Offset(20.0, 56.0)
             : Offset.zero;
     switch (orientation) {
       case Orientation.portrait:
@@ -172,7 +172,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
 
     final Widget actions = Container(
       alignment: AlignmentDirectional.centerEnd,
-      constraints: const BoxConstraints(minHeight: 52.0),
+      constraints: const BoxConstraints(minHeight: 60.0),
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: OverflowBar(
         spacing: 8.0,
@@ -261,7 +261,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
         final pickerMaxWidth =
             _landscapeDialogSize.width - _datePickerHeaderLandscapeWidth;
         final width = constraints.maxHeight < pickerMaxWidth
-            ? constraints.maxHeight / 3.0 * 4.0
+            ? constraints.maxHeight / 3.67 * 5
             : null;
 
         return Stack(

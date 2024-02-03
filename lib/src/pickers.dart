@@ -348,10 +348,12 @@ class _Button extends StatelessWidget {
   final VoidCallback onPressed;
 
   // --------------------------------- METHODS ---------------------------------
+  // Date item
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    final buttonBackground = isSelected ? colorScheme.secondary : null;
+    final buttonBackground =
+        isSelected ? colorScheme.primary.withOpacity(.5) : null;
     final buttonText = isSelected
         ? colorScheme.onSecondary
         : isHighlighted
