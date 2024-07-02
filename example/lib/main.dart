@@ -10,8 +10,8 @@ void main() {
 class ExampleApp extends StatelessWidget {
   // ------------------------------- CONSTRUCTORS ------------------------------
   const ExampleApp({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   // --------------------------------- METHODS ---------------------------------
   @override
@@ -31,8 +31,8 @@ class ExampleApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   // ------------------------------- CONSTRUCTORS ------------------------------
   const MyHomePage({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   // --------------------------------- METHODS ---------------------------------
   @override
@@ -58,15 +58,15 @@ class _MyHomePageState extends State<MyHomePage> {
               Text(DateFormat().add_yM().format(_selected!)),
             TextButton(
               child: const Text('DEFAULT LOCALE'),
-              onPressed: () => _onPressed(context: context),
+              onPressed: () async => _onPressed(context: context),
             ),
             TextButton(
               child: const Text('BAHASA MALAYSIA'),
-              onPressed: () => _onPressed(context: context, locale: 'ms'),
+              onPressed: () async => _onPressed(context: context, locale: 'ms'),
             ),
             TextButton(
               child: const Text('اللغة العربية'),
-              onPressed: () => _onPressed(context: context, locale: 'ar'),
+              onPressed: () async => _onPressed(context: context, locale: 'ar'),
             ),
           ],
         ),

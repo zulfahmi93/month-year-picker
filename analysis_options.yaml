@@ -7,79 +7,235 @@ analyzer:
     - lib/*.freezed.dart
     - lib/**/*.g.dart
     - lib/**/*.freezed.dart
-    - lib/**/*.gr.dart
+    - lib/**/l10n/*_localizations*.dart
     - lib/generated_plugin_registrant.dart
-    - shared_components/**/*.*
 
 linter:
   rules:
-    # STYLE
-    - camel_case_types
-    - camel_case_extensions
-    - library_names
-    - file_names
-    - library_prefixes
-    - non_constant_identifier_names
-    - constant_identifier_names
-    - directives_ordering
-    - lines_longer_than_80_chars
-    - curly_braces_in_flow_control_structures
-    - sort_pub_dependencies
-    - prefer_single_quotes
-    - always_declare_return_types
-
-    # DOCUMENTATION
-    - slash_for_doc_comments
-    - package_api_docs
-    # - public_member_api_docs
-    #- comment_references # Unused because https://github.com/dart-lang/sdk/issues/36974
-
-    # USAGE
-    - implementation_imports
-    - avoid_relative_lib_imports
+    # ERROR RULES
+    # - always_use_package_imports
+    - avoid_dynamic_calls
+    # - avoid_empty_else                                      ## Already defined in lints/core.yaml
+    # - avoid_print                                           ## Already defined in flutter_lints/flutter.yaml
+    # - avoid_relative_lib_imports                            ## Already defined in lints/core.yaml
+    - avoid_slow_async_io
+    - avoid_type_to_string
+    # - avoid_types_as_parameter_names                        ## Already defined in lints/core.yaml
+    # - avoid_web_libraries_in_flutter                        ## Already defined in flutter_lints/flutter.yaml
+    - cancel_subscriptions
+    - close_sinks
+    # - collection_methods_unrelated_type                     ## Already defined in lints/core.yaml
+    - comment_references
+    # - control_flow_in_finally                               ## Already defined in lints/recommended.yaml
+    - deprecated_member_use_from_same_package
+    - diagnostic_describe_all_properties
+    - discarded_futures
+    # - empty_statements                                      ## Already defined in lints/recommended.yaml
+    # - hash_and_equals                                       ## Already defined in lints/core.yaml
+    - implicit_reopen
+    - invalid_case_patterns
+    # - invalid_runtime_check_with_js_interop_types           ## NOT YET RELEASED
+    - literal_only_boolean_expressions
+    - missing_code_block_language_in_doc_comment
+    - no_adjacent_strings_in_list
+    # - no_duplicate_case_values                              ## Already defined in lints/core.yaml
+    # - no_logic_in_create_state                              ## Already defined in flutter_lints/flutter.yaml
+    - no_self_assignments
+    # - no_wildcard_variable_uses                             ## Already defined in lints/core.yaml
     - prefer_relative_imports
-    - prefer_adjacent_string_concatenation
-    - prefer_interpolation_to_compose_strings
-    - unnecessary_brace_in_string_interps
-    - prefer_collection_literals
-    - prefer_is_empty
-    - prefer_is_not_empty
-    - avoid_function_literals_in_foreach_calls
-    - prefer_iterable_whereType
-    - prefer_function_declarations_over_variables
-    - unnecessary_lambdas
-    - avoid_init_to_null
-    - unnecessary_getters_setters
-    #- unnecessary_getters # prefer # Disabled pending fix: https://github.com/dart-lang/linter/issues/23
-    - unnecessary_this
-    - prefer_initializing_formals
-    - type_init_formals
-    - empty_constructor_bodies
-    - unnecessary_new
-    - unnecessary_const
+    - prefer_void_to_null
+    - test_types_in_equals
+    - throw_in_finally
+    # - unintended_html_in_doc_comment                        ## NOT YET RELEASED
+    - unnecessary_statements
+    # - unrelated_type_equality_checks                        ## Already defined in lints/core.yaml
+    - unsafe_html
+    # - use_build_context_synchronously                       ## Already defined in flutter_lints/flutter.yaml
+    # - use_key_in_widget_constructors                        ## Already defined in flutter_lints/flutter.yaml
+    # - valid_regexps                                         ## Already defined in lints/core.yaml
+
+    # STYLES RULES
+    - always_declare_return_types
+    - always_put_control_body_on_new_line
+    # - always_put_required_named_parameters_first
+    # - always_specify_types                                  ## Incompatible with: avoid_types_on_closure_parameters, omit_local_variable_types
+    # - annotate_overrides                                    ## Already defined in lints/recommended.yaml
+    - annotate_redeclares
+    # - avoid_annotating_with_dynamic
+    - avoid_bool_literals_in_conditional_expressions
     - avoid_catches_without_on_clauses
     - avoid_catching_errors
-    - use_rethrow_when_possible
-
-    # DESIGN
-    - use_to_and_as_if_applicable
-    - one_member_abstracts
     - avoid_classes_with_only_static_members
-    - prefer_mixin
-    - prefer_final_fields
-    - use_setters_to_change_properties
-    - avoid_setters_without_getters
-    - avoid_returning_null
-    - avoid_returning_this
-    - type_annotate_public_apis
-    - prefer_typing_uninitialized_variables
-    - omit_local_variable_types
-    - avoid_types_on_closure_parameters
-    - avoid_return_types_on_setters
-    - prefer_generic_function_type_aliases
-    - avoid_private_typedef_functions
-    - use_function_type_syntax_for_parameters
-    - avoid_positional_boolean_parameters
-    - hash_and_equals
+    - avoid_double_and_int_checks
     - avoid_equals_and_hash_code_on_mutable_classes
-    - avoid_null_checks_in_equality_operators
+    # - avoid_escaping_inner_quotes
+    - avoid_field_initializers_in_const_classes
+    # - avoid_final_parameters
+    # - avoid_function_literals_in_foreach_calls              ## Already defined in lints/recommended.yaml
+    - avoid_implementing_value_types
+    # - avoid_init_to_null                                    ## Already defined in lints/recommended.yaml
+    - avoid_js_rounded_ints
+    - avoid_multiple_declarations_per_line
+    # - avoid_null_checks_in_equality_operators               ## Already defined in lints/recommended.yaml
+    - avoid_positional_boolean_parameters
+    - avoid_private_typedef_functions
+    - avoid_redundant_argument_values
+    # - avoid_renaming_method_parameters                      ## Already defined in lints/recommended.yaml
+    # - avoid_return_types_on_setters                         ## Already defined in lints/recommended.yaml
+    # - avoid_returning_null_for_void                         ## Already defined in lints/recommended.yaml
+    - avoid_returning_this
+    - avoid_setters_without_getters
+    # - avoid_shadowing_type_parameters                       ## Already defined in lints/core.yaml
+    # - avoid_single_cascade_in_expression_statements         ## Already defined in lints/recommended.yaml
+    - avoid_types_on_closure_parameters
+    # - avoid_unnecessary_containers                          ## Already defined in flutter_lints/flutter.yaml
+    - avoid_unused_constructor_parameters
+    - avoid_void_async
+    # - await_only_futures                                    ## Already defined in lints/core.yaml
+    # - camel_case_extensions                                 ## Already defined in lints/core.yaml
+    # - camel_case_types                                      ## Already defined in lints/core.yaml
+    - cascade_invocations
+    - cast_nullable_to_non_nullable
+    - combinators_ordering
+    - conditional_uri_does_not_exist
+    # - constant_identifier_names                             ## Already defined in lints/recommended.yaml
+    # - curly_braces_in_flow_control_structures               ## Already defined in lints/core.yaml
+    # - dangling_library_doc_comments                         ## Already defined in lints/core.yaml
+    - deprecated_consistency
+    - directives_ordering
+    - do_not_use_environment
+    # - document_ignores                                      ## NOT YET RELEASED
+    # - empty_catches                                         ## Already defined in lints/core.yaml
+    # - empty_constructor_bodies                              ## Already defined in lints/recommended.yaml
+    - eol_at_end_of_file
+    # - exhaustive_cases                                      ## Already defined in lints/recommended.yaml
+    # - file_names                                            ## Already defined in lints/core.yaml
+    - flutter_style_todos
+    # - implementation_imports                                ## Already defined in lints/recommended.yaml
+    # - implicit_call_tearoffs                                ## Already defined in lints/core.yaml
+    - join_return_with_assignment
+    - leading_newlines_in_multiline_strings
+    # - library_annotations                                   ## Already defined in lints/core.yaml
+    - library_names
+    # - library_prefixes                                      ## Already defined in lints/recommended.yaml
+    # - library_private_types_in_public_api                   ## Already defined in lints/recommended.yaml
+    - lines_longer_than_80_chars
+    - matching_super_parameters
+    - missing_whitespace_between_adjacent_strings
+    - no_default_cases
+    # - no_leading_underscores_for_library_prefixes           ## Already defined in lints/recommended.yaml
+    # - no_leading_underscores_for_local_identifiers          ## Already defined in lints/recommended.yaml
+    - no_literal_bool_comparisons
+    - no_runtimeType_toString
+    # - non_constant_identifier_names                         ## Already defined in lints/core.yaml
+    - noop_primitive_operations
+    # - null_check_on_nullable_type_parameter                 ## Already defined in lints/core.yaml
+    # - null_closures                                         ## Already defined in lints/recommended.yaml
+    - omit_local_variable_types
+    - one_member_abstracts
+    - only_throw_errors
+    # - overridden_fields                                     ## Already defined in lints/recommended.yaml
+    # - package_api_docs
+    # - package_prefixed_library_names
+    - parameter_assignments
+    # - prefer_adjacent_string_concatenation                  ## Already defined in lints/recommended.yaml
+    - prefer_asserts_in_initializer_lists
+    - prefer_asserts_with_message
+    # - prefer_collection_literals                            ## Already defined in lints/recommended.yaml
+    # - prefer_conditional_assignment                         ## Already defined in lints/recommended.yaml
+    # - prefer_const_constructors                             ## Already defined in flutter_lints/flutter.yaml
+    # - prefer_const_constructors_in_immutables               ## Already defined in flutter_lints/flutter.yaml
+    # - prefer_const_declarations                             ## Already defined in flutter_lints/flutter.yaml
+    # - prefer_const_literals_to_create_immutables            ## Already defined in flutter_lints/flutter.yaml
+    - prefer_constructors_over_static_methods
+    # - prefer_contains                                       ## Already defined in lints/recommended.yaml
+    # - prefer_double_quotes
+    # - prefer_expression_function_bodies
+    # - prefer_final_fields                                   ## Already defined in lints/recommended.yaml
+    - prefer_final_in_for_each
+    - prefer_final_locals
+    # - prefer_final_parameters
+    # - prefer_for_elements_to_map_fromIterable               ## Already defined in lints/recommended.yaml
+    - prefer_foreach
+    # - prefer_function_declarations_over_variables           ## Already defined in lints/recommended.yaml
+    # - prefer_generic_function_type_aliases                  ## Already defined in lints/core.yaml
+    - prefer_if_elements_to_conditional_expressions
+    # - prefer_if_null_operators                              ## Already defined in lints/recommended.yaml
+    # - prefer_initializing_formals                           ## Already defined in lints/recommended.yaml
+    # - prefer_inlined_adds                                   ## Already defined in lints/recommended.yaml
+    # - prefer_int_literals
+    # - prefer_interpolation_to_compose_strings               ## Already defined in lints/recommended.yaml
+    # - prefer_is_empty                                       ## Already defined in lints/core.yaml
+    # - prefer_is_not_empty                                   ## Already defined in lints/core.yaml
+    # - prefer_is_not_operator                                ## Already defined in lints/recommended.yaml
+    # - prefer_iterable_whereType                             ## Already defined in lints/core.yaml
+    - prefer_mixin
+    - prefer_null_aware_method_calls
+    # - prefer_null_aware_operators                           ## Already defined in lints/recommended.yaml
+    - prefer_single_quotes
+    # - prefer_spread_collections                             ## Already defined in lints/recommended.yaml
+    # - prefer_typing_uninitialized_variables                 ## Already defined in lints/core.yaml
+    # - provide_deprecation_message                           ## Already defined in lints/core.yaml
+    # - public_member_api_docs
+    # - recursive_getters                                     ## Already defined in lints/recommended.yaml
+    - require_trailing_commas
+    # - sized_box_for_whitespace                              ## Already defined in flutter_lints/flutter.yaml
+    - sized_box_shrink_expand
+    # - slash_for_doc_comments                                ## Already defined in lints/recommended.yaml
+    # - sort_child_properties_last                            ## Already defined in flutter_lints/flutter.yaml
+    - sort_constructors_first
+    - sort_unnamed_constructors_first
+    - tighten_type_of_initializing_formals
+    - type_annotate_public_apis
+    # - type_init_formals                                     ## Already defined in lints/recommended.yaml
+    # - type_literal_in_constant_pattern                      ## Already defined in lints/core.yaml
+    - unawaited_futures
+    - unnecessary_await_in_return
+    # - unnecessary_brace_in_string_interps                   ## Already defined in lints/recommended.yaml
+    - unnecessary_breaks
+    # - unnecessary_const                                     ## Already defined in lints/recommended.yaml
+    # - unnecessary_constructor_name                          ## Already defined in lints/recommended.yaml
+    # - unnecessary_final                                     ## Incompatible with: prefer_final_locals, prefer_final_parameters
+    # - unnecessary_getters_setters                           ## Already defined in lints/recommended.yaml
+    - unnecessary_lambdas
+    # - unnecessary_late                                      ## Already defined in lints/recommended.yaml
+    - unnecessary_library_directive
+    - unnecessary_library_name
+    # - unnecessary_new                                       ## Already defined in lints/recommended.yaml
+    # - unnecessary_null_aware_assignments                    ## Already defined in lints/recommended.yaml
+    - unnecessary_null_aware_operator_on_extension_on_nullable
+    - unnecessary_null_checks
+    # - unnecessary_null_in_if_null_operators                 ## Already defined in lints/recommended.yaml
+    # - unnecessary_nullable_for_final_variable_declarations  ## Already defined in lints/recommended.yaml
+    # - unnecessary_overrides                                 ## Already defined in lints/core.yaml
+    - unnecessary_parenthesis
+    - unnecessary_raw_strings
+    # - unnecessary_string_escapes                            ## Already defined in lints/recommended.yaml
+    # - unnecessary_string_interpolations                     ## Already defined in lints/recommended.yaml
+    # - unnecessary_this                                      ## Already defined in lints/recommended.yaml
+    # - unnecessary_to_list_in_spreads                        ## Already defined in lints/recommended.yaml
+    - unreachable_from_main
+    - use_colored_box
+    - use_decorated_box
+    - use_enums
+    # - use_full_hex_values_for_flutter_colors                ## Already defined in flutter_lints/flutter.yaml
+    # - use_function_type_syntax_for_parameters               ## Already defined in lints/recommended.yaml
+    - use_if_null_to_convert_nulls_to_bools
+    - use_is_even_rather_than_modulo
+    - use_late_for_private_fields_and_variables
+    - use_named_constants
+    - use_raw_strings
+    # - use_rethrow_when_possible                             ## Already defined in lints/recommended.yaml
+    - use_setters_to_change_properties
+    - use_string_buffers
+    # - use_string_in_part_of_directives                      ## Already defined in lints/core.yaml
+    # - use_super_parameters                                  ## Already defined in lints/recommended.yaml
+    - use_test_throws_matchers
+    - use_to_and_as_if_applicable
+    # - void_checks                                           ## Already defined in lints/core.yaml
+
+    # PUB RULES
+    # - depend_on_referenced_packages                         ## Already defined in lints/core.yaml
+    # - package_names                                         ## Already defined in lints/recommended.yaml
+    # - secure_pubspec_urls                                   ## Already defined in lints/core.yaml
+    - sort_pub_dependencies
