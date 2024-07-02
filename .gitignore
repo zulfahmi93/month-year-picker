@@ -79,5 +79,5 @@ pubspec.lock
 secrets.*
 Secrets.*
 
-#FVM
-.fvm/flutter_sdk
+# FVM Version Cache
+.fvm/
