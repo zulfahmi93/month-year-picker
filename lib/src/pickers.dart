@@ -465,26 +465,32 @@ class _Button extends StatelessWidget {
   // --------------------------------- METHODS ---------------------------------
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-    final buttonBackground = isSelected ? colorScheme.secondary : null;
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+    final dateTheme = theme.datePickerTheme;
+    final buttonBackground = isSelected ? colorScheme.primary : null;
     final buttonText = isSelected
-        ? colorScheme.onSecondary
+        ? colorScheme.onPrimary
         : isHighlighted
-            ? colorScheme.secondary
-            : colorScheme.onSurface;
+            ? colorScheme.primary
+            : theme.textTheme.bodyMedium!.color;
 
-    return TextButton(
-      onPressed: isEnabled ? onPressed : null,
-      style: TextButton.styleFrom(
-        backgroundColor: buttonBackground,
-        foregroundColor: buttonText,
-        disabledForegroundColor: buttonText,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(100.0),
+    // Padding added to make the circle smaller
+    return Container(
+      padding: const EdgeInsets.all(10),
+      child: TextButton(
+        onPressed: isEnabled ? onPressed : null,
+        style: TextButton.styleFrom(
+          backgroundColor: buttonBackground,
+          foregroundColor: buttonText,
+          disabledForegroundColor: buttonText,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(100.0),
+          ),
+          textStyle: TextStyle(color: buttonText),
         ),
-        textStyle: TextStyle(color: buttonText),
+        child: Text(label, style: dateTheme.dayStyle),
       ),
-      child: Text(label),
     );
   }
 

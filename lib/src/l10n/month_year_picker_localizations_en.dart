@@ -5,11 +5,11 @@ class MonthYearPickerLocalizationsEn extends MonthYearPickerLocalizations {
   MonthYearPickerLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get helpText => 'SELECT MONTH/YEAR';
+  String get helpText => 'Select Month/Year';
 
   @override
   String get okButtonLabel => 'OK';
 
   @override
-  String get cancelButtonLabel => 'CANCEL';
+  String get cancelButtonLabel => 'Cancel';
 }
