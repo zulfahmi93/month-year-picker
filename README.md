@@ -10,7 +10,7 @@ The month year picker inspired by the Flutter's date picker design.
 1. Open your `pubspec.yaml` file and add this entry:
 
     ```yaml
-    month_year_picker: ^0.3.0+1
+    month_year_picker: ^0.5.0+1
     ```
 
    OR just run `flutter pub add month_year_picker` using your preferred terminal app.
@@ -76,13 +76,13 @@ The month year picker inspired by the Flutter's date picker design.
 
 ### Dependencies
 
-1. Dart SDK version 3.0.0 or newer.
-2. Flutter SDK version 3.10 or newer.
+1. Dart SDK version 3.8.0 or newer.
+2. Flutter SDK version 3.32 or newer.
 
 ### Steps
 
 1. Clone this git repo into your machine.
-2. Run `.\gen_l10n.ps1` to re-generate the localised strings.
+2. Run `.\gen-l10n.ps1` to re-generate the localised strings.
 
 ## Features and Bugs
 

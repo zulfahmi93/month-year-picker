@@ -30,3 +30,6 @@
 
 ## v0.4.0+1
 - **BREAKING CHANGES**: Upgraded to Dart 3.4 and Flutter 3.22 SDK.
+
+## v0.5.0+1
+- **BREAKING CHANGES**: Upgraded to Dart 3.8 and Flutter 3.32 SDK.

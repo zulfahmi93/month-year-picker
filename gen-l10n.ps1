@@ -4,4 +4,6 @@ fvm flutter gen-l10n `
 --output-localization-file="month_year_picker_localizations.dart" `
 --output-class="MonthYearPickerLocalizations" `
 --output-dir="lib/src/l10n" `
---no-synthetic-package
+--no-synthetic-package `
+--no-nullable-getter `
+--format
