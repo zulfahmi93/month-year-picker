@@ -287,23 +287,17 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
 
     final picker = LayoutBuilder(
       builder: (context, constraints) {
-        final pickerMaxWidth =
-            _landscapeDialogSize.width - _datePickerHeaderLandscapeWidth;
-        final width = constraints.maxHeight < pickerMaxWidth
-            ? constraints.maxHeight / 3.0 * 4.0
-            : null;
-
         return Stack(
           children: [
             AnimatedPositioned(
               duration: _dialogSizeAnimationDuration,
               curve: Curves.easeOut,
               left: 0.0,
-              right: pickerMaxWidth - (width ?? pickerMaxWidth),
               top: _isShowingYear ? 0.0 : -constraints.maxHeight,
               bottom: _isShowingYear ? 0.0 : constraints.maxHeight,
               child: SizedBox(
                 height: constraints.maxHeight,
+                width: constraints.maxWidth,
                 child: YearPicker(
                   key: _yearPickerState,
                   initialDate: _selectedDate,
@@ -321,11 +315,11 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
               duration: _dialogSizeAnimationDuration,
               curve: Curves.easeOut,
               left: 0.0,
-              right: pickerMaxWidth - (width ?? pickerMaxWidth),
               top: _isShowingYear ? constraints.maxHeight : 0.0,
               bottom: _isShowingYear ? -constraints.maxHeight : 0.0,
               child: SizedBox(
                 height: constraints.maxHeight,
+                width: constraints.maxWidth,
                 child: MonthPicker(
                   key: _monthPickerState,
                   initialDate: _selectedDate,

@@ -127,22 +127,34 @@ class MonthPickerState extends State<MonthPicker> {
   }
 
   Widget _buildItem(final BuildContext context, final int page) {
-    return GridView.count(
-      physics: const NeverScrollableScrollPhysics(),
-      padding: const EdgeInsets.all(8.0),
-      crossAxisCount: 4,
-      children: [
-        for (var i = 0; i < 12; i++)
-          _MonthButton(
-            page: page,
-            index: i,
-            firstDate: widget.firstDate,
-            lastDate: widget.lastDate,
-            selectedDate: widget.selectedDate,
-            onMonthSelected: widget.onMonthSelected,
-            selectableMonthYearPredicate: widget.selectableMonthYearPredicate,
-          ),
-      ],
+    return LayoutBuilder(
+      builder: (context,constraints){
+        const totalItems=12;
+        final crossAxisCount=constraints.maxWidth ~/ (100);
+        final mainAxisCount=totalItems ~/ crossAxisCount;
+        final itemWidget= constraints.maxWidth/crossAxisCount;
+        final itemHeight= constraints.maxHeight/mainAxisCount;
+        return GridView.count(
+          physics: const NeverScrollableScrollPhysics(),
+          padding: const EdgeInsets.all(8.0),
+          crossAxisCount: crossAxisCount,
+          childAspectRatio: itemWidget/itemHeight,
+          children: List<Widget>.generate(totalItems, (index){
+            return Center(
+              child: _MonthButton(
+                page: page,
+                index: index,
+                firstDate: widget.firstDate,
+                lastDate: widget.lastDate,
+                selectedDate: widget.selectedDate,
+                onMonthSelected: widget.onMonthSelected,
+                selectableMonthYearPredicate:
+                widget.selectableMonthYearPredicate,
+              ),
+            );
+          }),
+        );
+      },
     );
   }
 
@@ -281,23 +293,33 @@ class YearPickerState extends State<YearPicker> {
   }
 
   Widget _buildItem(final BuildContext context, final int page) {
-    return GridView.count(
-      physics: const NeverScrollableScrollPhysics(),
-      padding: const EdgeInsets.all(8.0),
-      crossAxisCount: 4,
-      children: [
-        for (var i = 0; i < 12; i++)
-          _YearButton(
-            page: page,
-            index: i,
-            firstDate: widget.firstDate,
-            lastDate: widget.lastDate,
-            selectedDate: widget.selectedDate,
-            onYearSelected: widget.onYearSelected,
-            selectableMonthYearPredicate: widget.selectableMonthYearPredicate,
-          ),
-      ],
+    return LayoutBuilder(
+      builder: (context,constraints){
+        const totalItems=12;
+        final crossAxisCount=constraints.maxWidth ~/ (100);
+        final mainAxisCount=totalItems ~/ crossAxisCount;
+        final itemWidget= constraints.maxWidth/crossAxisCount;
+        final itemHeight= constraints.maxHeight/mainAxisCount;
+        return GridView.count(
+          physics: const NeverScrollableScrollPhysics(),
+          padding: const EdgeInsets.all(8.0),
+          crossAxisCount: crossAxisCount,
+          childAspectRatio: itemWidget/itemHeight,
+          children: List<Widget>.generate(totalItems,(index){
+            return _YearButton(
+              page: page,
+              index: index,
+              firstDate: widget.firstDate,
+              lastDate: widget.lastDate,
+              selectedDate: widget.selectedDate,
+              onYearSelected: widget.onYearSelected,
+              selectableMonthYearPredicate: widget.selectableMonthYearPredicate,
+            );
+          }),
+        );
+      },
     );
+
   }
 
   void _onPageChanged(final int page) {
@@ -473,18 +495,20 @@ class _Button extends StatelessWidget {
             ? colorScheme.secondary
             : colorScheme.onSurface;
 
-    return TextButton(
-      onPressed: isEnabled ? onPressed : null,
-      style: TextButton.styleFrom(
-        backgroundColor: buttonBackground,
-        foregroundColor: buttonText,
-        disabledForegroundColor: buttonText,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(100.0),
+    return InkWell(
+      onTap: isEnabled ? onPressed : null,
+      customBorder: const CircleBorder(),
+      child: Container(
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: buttonBackground,
         ),
-        textStyle: TextStyle(color: buttonText),
+        child: Center(
+            child: Text(label,
+              style: TextStyle(color: buttonText),),
+        ),
       ),
-      child: Text(label),
     );
   }
 
