@@ -186,6 +186,8 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
     final colorScheme = theme.colorScheme;
     final orientation = media.orientation;
     final textTheme = theme.textTheme;
+    // Date Picker Theme of our App
+    final dateTheme = theme.datePickerTheme;
     // Constrain the textScaleFactor to the largest supported value to prevent
     // layout issues.
     final textScaler = media.textScaler;
@@ -195,9 +197,18 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
     final onPrimarySurface = colorScheme.brightness == Brightness.light
         ? colorScheme.onPrimary
         : colorScheme.onSurface;
-    final dateStyle = orientation == Orientation.landscape
+    final dateStyleAux = orientation == Orientation.landscape
         ? textTheme.headlineSmall?.copyWith(color: onPrimarySurface)
         : textTheme.headlineMedium?.copyWith(color: onPrimarySurface);
+    // To get same style as Date Picker header
+    final dateStyle = dateTheme.headerHeadlineStyle != null
+        ? dateTheme.headerHeadlineStyle!
+            .copyWith(color: dateTheme.headerForegroundColor)
+        : dateStyleAux;
+    final helpStyle = dateTheme.headerHelpStyle
+        ?.copyWith(color: dateTheme.headerForegroundColor);
+
+    final controlColor = theme.colorScheme.onSurface.withOpacity(0.60);
 
     final Widget actions = Container(
       alignment: AlignmentDirectional.centerEnd,
@@ -207,10 +218,12 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
         spacing: 8.0,
         children: <Widget>[
           TextButton(
+            style: dateTheme.cancelButtonStyle,
             onPressed: () => Navigator.pop(context),
             child: Text(localizations.cancelButtonLabel),
           ),
           TextButton(
+            style: dateTheme.confirmButtonStyle,
             onPressed: () => Navigator.pop(context, _selectedDate),
             child: Text(localizations.okButtonLabel),
           ),
@@ -221,6 +234,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
     final semanticText = materialLocalizations.formatMonthYear(_selectedDate);
     final header = _Header(
       helpText: localizations.helpText,
+      helpStyle: helpStyle,
       titleText: dateText,
       titleSemanticsLabel: semanticText,
       titleStyle: dateStyle,
@@ -237,15 +251,24 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
               8.0,
               24.0,
             ),
-            foregroundColor: Theme.of(context).textTheme.bodySmall?.color,
+            foregroundColor: theme.textTheme.bodySmall?.color,
           ),
           child: Row(
             children: [
-              Text(materialLocalizations.formatYear(_selectedDate)),
+              Text(
+                materialLocalizations.formatYear(_selectedDate),
+                // To match Flutter Date Picker
+                style: theme.textTheme.titleSmall?.copyWith(
+                  color: controlColor,
+                ),
+              ),
               AnimatedRotation(
                 duration: _dialogSizeAnimationDuration,
                 turns: _isShowingYear ? 0.5 : 0.0,
-                child: const Icon(Icons.arrow_drop_down),
+                child: Icon(
+                  Icons.arrow_drop_down,
+                  color: controlColor,
+                ),
               ),
             ],
           ),
@@ -267,6 +290,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
                   direction == TextDirection.rtl
                       ? Icons.keyboard_arrow_right
                       : Icons.keyboard_arrow_left,
+                  color: controlColor,
                 ),
                 onPressed: _canGoPrevious ? _goToPreviousPage : null,
               ),
@@ -275,6 +299,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
                   direction == TextDirection.rtl
                       ? Icons.keyboard_arrow_left
                       : Icons.keyboard_arrow_right,
+                  color: controlColor,
                 ),
                 onPressed: _canGoNext ? _goToNextPage : null,
               ),
@@ -347,6 +372,9 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
     return Directionality(
       textDirection: direction,
       child: Dialog(
+        backgroundColor: dateTheme.backgroundColor,
+        // To match the shape with all the other dialogs
+        shape: theme.dialogTheme.shape,
         insetPadding: const EdgeInsets.symmetric(
           horizontal: 16.0,
           vertical: 24.0,
@@ -445,6 +473,7 @@ class _Header extends StatelessWidget {
   // ------------------------------- CONSTRUCTORS ------------------------------
   const _Header({
     required this.helpText,
+    required this.helpStyle,
     required this.titleText,
     this.titleSemanticsLabel,
     required this.titleStyle,
@@ -453,6 +482,7 @@ class _Header extends StatelessWidget {
 
   // ---------------------------------- FIELDS ---------------------------------
   final String helpText;
+  final TextStyle? helpStyle;
   final String titleText;
   final String? titleSemanticsLabel;
   final TextStyle? titleStyle;
@@ -462,24 +492,23 @@ class _Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final dateTheme = theme.datePickerTheme;
     final colorScheme = theme.colorScheme;
     final textTheme = theme.textTheme;
 
     // The header should use the primary color in light themes and surface color
     // in dark.
     final isDark = colorScheme.brightness == Brightness.dark;
-    final primarySurfaceColor =
-        isDark ? colorScheme.surface : colorScheme.primary;
     final onPrimarySurfaceColor =
         isDark ? colorScheme.onSurface : colorScheme.onPrimary;
 
-    final helpStyle = textTheme.labelSmall?.copyWith(
+    final helpStyleAux = textTheme.labelSmall?.copyWith(
       color: onPrimarySurfaceColor,
     );
 
     final help = Text(
       helpText,
-      style: helpStyle,
+      style: helpStyle ?? helpStyleAux,
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
     );
@@ -497,7 +526,7 @@ class _Header extends StatelessWidget {
         return SizedBox(
           height: _datePickerHeaderPortraitHeight,
           child: Material(
-            color: primarySurfaceColor,
+            color: dateTheme.headerBackgroundColor ?? colorScheme.primary,
             child: Padding(
               padding: const EdgeInsetsDirectional.only(
                 start: 24.0,
@@ -519,7 +548,7 @@ class _Header extends StatelessWidget {
         return SizedBox(
           width: _datePickerHeaderLandscapeWidth,
           child: Material(
-            color: primarySurfaceColor,
+            color: dateTheme.headerBackgroundColor ?? colorScheme.primary,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -554,6 +583,7 @@ class _Header extends StatelessWidget {
       ..add(StringProperty('titleText', titleText))
       ..add(StringProperty('titleSemanticsLabel', titleSemanticsLabel))
       ..add(DiagnosticsProperty<TextStyle?>('titleStyle', titleStyle))
-      ..add(EnumProperty<Orientation>('orientation', orientation));
+      ..add(EnumProperty<Orientation>('orientation', orientation))
+      ..add(DiagnosticsProperty<TextStyle?>('helpStyle', helpStyle));
   }
 }

@@ -1,5 +1,5 @@
 {
-  "helpText": "SELECT MONTH/YEAR",
+  "helpText": "Select Month/Year",
   "okButtonLabel": "OK",
-  "cancelButtonLabel": "CANCEL"
+  "cancelButtonLabel": "Cancel"
 }
